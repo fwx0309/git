@@ -1,0 +1,37 @@
+1.初始化操作
+安装完git后设置一次即可，设置成功后，查看C:\Users\Administrator\.gitconfig确认
+命令名称 作用
+git config --global user.name 用户名 设置用户签名
+git config --global user.email 邮箱 设置用户签名
+
+2.基本命令
+git init 初始化本地库
+git status 查看本地库状态
+git add 文件名 添加到暂存区，git rm --cached hello.txt 删除暂存区文件
+git commit -m "日志信息" 文件名 提交到本地库
+git reflog 查看历史记录
+git log 查看详细历史记录
+git reset --hard 版本号 版本穿梭
+
+3.分支的操作
+命令名称 作用
+git branch 分支名 创建分支
+git branch -v 查看分支
+git checkout 分支名 切换分支
+git merge 分支名 把指定的分支合并到当前分支上
+	合并冲突解决：手动处理冲突文件，git add 该文件，commit 文件时不要带文件名
+	
+4.远程仓库操作
+命令名称 作用
+git remote -v 查看当前所有远程地址别名
+git remote add 别名 远程地址 起别名
+git push 别名 分支 推送本地分支上的内容到远程仓库
+git clone 远程地址 将远程仓库的内容克隆到本地
+git pull 远程库地址别名 远程分支名 将远程仓库对于分支最新内容拉下来后与
+当前本地分支直接合并
+
+5.SSH 免密登录
+	1)删除C:\Users\Administrator\.ssh
+	2)运行命令生成.ssh 秘钥目录， ssh-keygen -t rsa -C atguiguyueyue@aliyun.com
+	3)复制 id_rsa.pub 文件内容，登录 GitHub，点击用户头像→Settings→SSH and GPG keys
+	4)接下来再往远程仓库 push 东西的时候使用 SSH 连接就不需要登录了。
